@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebAPI.DataBase.ModelsData;
+using APIWeb.DataBase.ModelsData;
 
-namespace WebAPI.DataBase.ApiData
+namespace APIWeb.DataBase.ApiData
 {
     public class ApiContext : DbContext
     {

@@ -1,10 +1,8 @@
-﻿namespace WebAPI.Models.Responses
+﻿namespace APIWeb.Models.Responses
 {
     public class FailedBaseResponse
     {
-        /// <example>false</example>
-        public bool success { get; set; } = false;
-        /// <example>Error</example>
-        public string message { get; set; } = "Error";
+        public bool success { get; private set; } = false;
+        public string message { get; private set; } = "Error";
     }
 }

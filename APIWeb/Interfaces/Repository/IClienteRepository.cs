@@ -1,8 +1,7 @@
 ﻿using APIWeb.Models.DTO;
-using WebAPI.DataBase.ModelsData;
-using WebAPI.Models.ClienteModel;
+using APIWeb.Models.Cliente;
 
-namespace WebAPI.Interfaces
+namespace APIWeb.Interfaces
 {
     public interface IClienteRepository
     {

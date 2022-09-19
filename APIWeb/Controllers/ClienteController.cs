@@ -1,9 +1,9 @@
 using APIWeb.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using WebAPI.Interfaces;
-using WebAPI.Models.ClienteModel;
-using WebAPI.Models.Responses;
+using APIWeb.Interfaces;
+using APIWeb.Models.Responses;
+using APIWeb.Models.Cliente;
 
 namespace APIWeb.Controllers
 {
@@ -35,13 +35,13 @@ namespace APIWeb.Controllers
             catch (Exception) { throw; }
         }
 
-        [SwaggerResponse(200, "Successful operation", Type = typeof(SuccessBaseResponse))]
+        [SwaggerResponse(200, "Successful operation", Type = typeof(BaseResponse))]
         [SwaggerResponse(400, "Failed operation", Type = typeof(FailedBaseResponse))]
         [SwaggerOperation(Summary = "", Description = "", Tags = new[] { "CLIENTE" })]
         [HttpPost]
         public async Task<IActionResult> CriarCliente(CreateClienteModel model)
         {
-            var retornosuccess = new SuccessBaseResponse();
+            var retornosuccess = new BaseResponse();
             var retornofailed = new  FailedBaseResponse();
             try
             {

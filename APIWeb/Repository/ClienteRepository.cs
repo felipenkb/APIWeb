@@ -1,10 +1,10 @@
 ﻿using APIWeb.Models.DTO;
-using WebAPI.DataBase.ApiData;
-using WebAPI.DataBase.ModelsData;
-using WebAPI.Interfaces;
-using WebAPI.Models.ClienteModel;
+using APIWeb.DataBase.ApiData;
+using APIWeb.DataBase.ModelsData;
+using APIWeb.Interfaces;
+using APIWeb.Models.Cliente;
 
-namespace WebAPI.Repository
+namespace APIWeb.Repository
 {
     public class ClienteRepository : IClienteRepository
     {

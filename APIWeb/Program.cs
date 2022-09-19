@@ -2,9 +2,10 @@ using APIWeb.DataBase.IdentityData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
-using WebAPI.DataBase.ApiData;
-using WebAPI.Interfaces;
-using WebAPI.Repository;
+using APIWeb.DataBase.ApiData;
+using APIWeb.Interfaces;
+using APIWeb.Repository;
+using APIWeb.Services.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,9 +21,11 @@ builder.Services.AddDbContext<IdentityDataContext>(options => options.UseSqlServ
 
 #endregion
 
-
+#region Scoped
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IIdentityService, IdentityServices>();
 
+#endregion
 
 builder.Services.AddSwaggerGen(c =>
 {

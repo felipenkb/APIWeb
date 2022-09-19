@@ -1,4 +1,4 @@
-﻿namespace WebAPI.Models.ClienteModel
+﻿namespace APIWeb.Models.Cliente
 {
     public class CreateClienteModel
     {
