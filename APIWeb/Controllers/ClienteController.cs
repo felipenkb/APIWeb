@@ -1,14 +1,17 @@
 using APIWeb.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using APIWeb.Interfaces;
+using APIWeb.Interfaces.Repository;
 using APIWeb.Models.Responses;
 using APIWeb.Models.Cliente;
+using Microsoft.AspNetCore.Authorization;
+using APIWeb.Models.Constants;
 
 namespace APIWeb.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+
     public class ClienteController : Controller
     {
         private readonly IClienteRepository _repository;
@@ -18,6 +21,7 @@ namespace APIWeb.Controllers
             _repository = repository;
         }
 
+        [Authorize(Policy = Policies.HorarioComercial)]
         [SwaggerResponse(200, "Successful operation", Type = typeof(ClienteDTO))]
         [SwaggerResponse(400, "Failed operation", Type = typeof(FailedBaseResponse))]
         [SwaggerOperation(Summary = "", Description = "", Tags = new[] { "CLIENTE" })]
@@ -35,6 +39,7 @@ namespace APIWeb.Controllers
             catch (Exception) { throw; }
         }
 
+        [Authorize(Roles = "Admin")]
         [SwaggerResponse(200, "Successful operation", Type = typeof(BaseResponse))]
         [SwaggerResponse(400, "Failed operation", Type = typeof(FailedBaseResponse))]
         [SwaggerOperation(Summary = "", Description = "", Tags = new[] { "CLIENTE" })]
