@@ -1,7 +1,6 @@
-﻿using APIWeb.Interfaces;
+﻿using APIWeb.Interfaces.Service;
 using APIWeb.Models.Identity;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Options;
 
 namespace APIWeb.Services.Identity
 {

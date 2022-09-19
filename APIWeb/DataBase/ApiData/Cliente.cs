@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace APIWeb.DataBase.ModelsData
+namespace APIWeb.DataBase.ApiData
 {
     public class Cliente
     {

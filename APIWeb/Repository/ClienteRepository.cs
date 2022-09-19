@@ -1,7 +1,6 @@
 ﻿using APIWeb.Models.DTO;
 using APIWeb.DataBase.ApiData;
-using APIWeb.DataBase.ModelsData;
-using APIWeb.Interfaces;
+using APIWeb.Interfaces.Repository;
 using APIWeb.Models.Cliente;
 
 namespace APIWeb.Repository

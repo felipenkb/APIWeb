@@ -1,6 +1,6 @@
 ﻿using APIWeb.Models.Identity;
 
-namespace APIWeb.Interfaces
+namespace APIWeb.Interfaces.Service
 {
     public interface IIdentityService
     {

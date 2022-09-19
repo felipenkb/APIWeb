@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using APIWeb.DataBase.ModelsData;
 
 namespace APIWeb.DataBase.ApiData
 {

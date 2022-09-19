@@ -1,7 +1,7 @@
 ﻿using APIWeb.Models.DTO;
 using APIWeb.Models.Cliente;
 
-namespace APIWeb.Interfaces
+namespace APIWeb.Interfaces.Repository
 {
     public interface IClienteRepository
     {
