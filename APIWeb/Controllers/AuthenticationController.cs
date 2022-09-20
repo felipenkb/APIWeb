@@ -1,4 +1,5 @@
 ﻿using APIWeb.Interfaces.Service;
+using APIWeb.Models.Constants;
 using APIWeb.Models.Identity;
 using APIWeb.Models.Responses;
 using Microsoft.AspNetCore.Authorization;
@@ -16,7 +17,7 @@ namespace APIWeb.Controllers
 
         public AuthenticationController(IIdentityService identityService) => _identityService = identityService;
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = Roles.Admin)]
         [SwaggerResponse(200, "Successful operation", Type = typeof(BaseResponse))]
         [SwaggerResponse(400, "Failed operation", Type = typeof(FailedBaseResponse))]
         [SwaggerOperation(Summary = "", Description = "", Tags = new[] { "AUTHENTICATION" })]
@@ -26,7 +27,7 @@ namespace APIWeb.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            if (user.Role != "Admin")
+            if (user.Role != Roles.Admin)
                return BadRequest();
 
             var result = await _identityService.CadastrarUsuario(user);
