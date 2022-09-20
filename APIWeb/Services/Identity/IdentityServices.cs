@@ -1,6 +1,6 @@
 ﻿using APIWeb.Interfaces.Service;
 using APIWeb.Models.Identity;
-using APIWeb.Services.Configurations;
+using APIWeb.Configurations;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using System.IdentityModel.Tokens.Jwt;

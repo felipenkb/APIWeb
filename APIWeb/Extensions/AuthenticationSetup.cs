@@ -1,6 +1,6 @@
 ﻿using APIWeb.Handles;
 using APIWeb.Models.Constants;
-using APIWeb.Services.Configurations;
+using APIWeb.Configurations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
