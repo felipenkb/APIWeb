@@ -12,7 +12,7 @@ namespace APIWeb.Services.Identity
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        //private readonly RoleManager<IdentityRole> _roleManager;
         
 
         private readonly JwtOptions _jwtOptions;
@@ -66,7 +66,7 @@ namespace APIWeb.Services.Identity
                 else if (result.RequiresTwoFactor)
                     usuarioLoginResponse.AddError("Necessario confirmar a autenticação de dois fatores");
                 else
-                    usuarioLoginResponse.AddError("Usuario ou senha estão incorretos");
+                    usuarioLoginResponse.AddError("Usuário ou senha estão incorretos");
             }
 
             return usuarioLoginResponse;

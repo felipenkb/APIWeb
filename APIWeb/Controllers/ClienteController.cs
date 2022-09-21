@@ -23,37 +23,42 @@ namespace APIWeb.Controllers
 
         [Authorize(Policy = Policies.HorarioComercial)]
         [SwaggerResponse(200, "Successful operation", Type = typeof(ClienteDTO))]
-        [SwaggerResponse(400, "Failed operation", Type = typeof(FailedBaseResponse))]
+        [SwaggerResponse(400, "Failed operation", Type = typeof(FailedResponse))]
         [SwaggerOperation(Summary = "", Description = "", Tags = new[] { "CLIENTE" })]
         [HttpGet]
         public async Task<IActionResult> GetClientes()
         {
-            FailedBaseResponse retornofailed = new ();
+            FailedResponse failed = new();
+
             try
             {
                 var get = await _repository.GetAll();
                 if (get != null) return Ok(get);
-                
-                return BadRequest(retornofailed);
+
+                return BadRequest(failed);
             }
-            catch (Exception) { throw; }
+            catch (Exception ex) { return BadRequest(ex.Message); }
         }
 
         [Authorize(Roles = "Admin")]
-        [SwaggerResponse(200, "Successful operation", Type = typeof(BaseResponse))]
-        [SwaggerResponse(400, "Failed operation", Type = typeof(FailedBaseResponse))]
+        [SwaggerResponse(200, "Successful operation", Type = typeof(SuccessResponse))]
+        [SwaggerResponse(400, "Failed operation", Type = typeof(FailedResponse))]
         [SwaggerOperation(Summary = "", Description = "", Tags = new[] { "CLIENTE" })]
         [HttpPost]
         public async Task<IActionResult> CriarCliente(CreateClienteModel model)
         {
-            var retornosuccess = new BaseResponse();
-            var retornofailed = new  FailedBaseResponse();
+            SuccessResponse success = new();
+            FailedResponse failed = new();
+
             try
             {
-                var add = await _repository.Create(model);
-                if (add) return Ok(retornosuccess);
+                if (!ModelState.IsValid)
+                    return BadRequest();
 
-                return BadRequest(retornofailed);
+                var add = await _repository.Create(model);
+                if (add) return Ok(success);
+
+                return BadRequest(failed);
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
